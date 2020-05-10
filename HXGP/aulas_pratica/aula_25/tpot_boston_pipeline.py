@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
-from sklearn.ensemble import ExtraTreesRegressor
-from sklearn.linear_model import ElasticNetCV
+from sklearn.ensemble import AdaBoostRegressor
+from sklearn.linear_model import ElasticNetCV, RidgeCV
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import make_pipeline, make_union
 from tpot.builtins import StackingEstimator
@@ -13,11 +13,11 @@ features = tpot_data.drop('target', axis=1)
 training_features, testing_features, training_target, testing_target = \
             train_test_split(features, tpot_data['target'], random_state=42)
 
-# Average CV score on the training set was: -11.04782784082514
+# Average CV score on the training set was: -13.00315678674446
 exported_pipeline = make_pipeline(
-    StackingEstimator(estimator=ExtraTreesRegressor(bootstrap=False, max_features=0.9500000000000001, min_samples_leaf=1, min_samples_split=16, n_estimators=100)),
-    StackingEstimator(estimator=ExtraTreesRegressor(bootstrap=False, max_features=0.9500000000000001, min_samples_leaf=1, min_samples_split=9, n_estimators=100)),
-    ElasticNetCV(l1_ratio=0.45, tol=0.001)
+    StackingEstimator(estimator=AdaBoostRegressor(learning_rate=1.0, loss="square", n_estimators=100)),
+    StackingEstimator(estimator=RidgeCV()),
+    ElasticNetCV(l1_ratio=0.65, tol=0.01)
 )
 # Fix random state for all the steps in exported pipeline
 set_param_recursive(exported_pipeline.steps, 'random_state', 42)
