@@ -1,4 +1,3 @@
-#!-*- coding: utf8 -*-
 
 import pandas as pd
 from collections import Counter
