@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<!-- saved from url=(0111)https://cursos.alura.com.br/course/machine-learning-otimizacao-de-modelos-atraves-de-hiperparametros/task/48702 -->
+<html lang="pt-BR" data-product="alura" class=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+
+	
+		
+
+
+
+<!-- Page hiding snippet (recommended)  -->
+<style>.async-hide { opacity: 0 !important} </style>
+<script async="" src="./Otimização de modelos através de hiperparâmetros_files/analytics.js"></script><script type="text/javascript" async="" src="./Otimização de modelos através de hiperparâmetros_files/analytics.js"></script><script async="" src="./Otimização de modelos através de hiperparâmetros_files/gtm.js"></script><script>
+	(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+	h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+	(a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+	})(window,document.documentElement,'async-hide','dataLayer',4000,
+		{'GTM-TN542JN':true});
+</script>
+
+<!-- Google Tag Manager -->
+<script>
+	(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer', 'GTM-TN542JN');
+</script>
+<!-- End Google Tag Manager -->
+
+
+	<script type="text/javascript">
+        dataLayer.push({
+            'tipoPagina': 'Aula',
+            'curso': 'Machine Learning parte 1: Otimização de modelos através de hiperparâmetros'
+        });
+	</script>
+
+	
+
+	<title>Machine Learning parte 1: Aula 1 - Atividade 1 Projeto inicial | Alura - Cursos online de tecnologia</title>
+	
+	<link rel="shortcut icon" href="https://cursos.alura.com.br/assets/images/alura/favicon.ico">
+	
+	<link href="./Otimização de modelos através de hiperparâmetros_files/css" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.gstatic.com/">
+
+	<link rel="stylesheet" href="./Otimização de modelos através de hiperparâmetros_files/video-js.14c97cfe.css">
+	<link rel="stylesheet" href="./Otimização de modelos através de hiperparâmetros_files/silvermine-videojs-quality-selector.min.de928d55.css">
+	<link rel="stylesheet" href="./Otimização de modelos através de hiperparâmetros_files/prettify.4f36b4ca.css">
+
+	<link rel="stylesheet" href="./Otimização de modelos através de hiperparâmetros_files/base.1e88adda.css">
+	<link rel="stylesheet" href="./Otimização de modelos através de hiperparâmetros_files/formattedText.afb4622e.css">
+	
+	<link rel="stylesheet" href="./Otimização de modelos através de hiperparâmetros_files/container.16466c50.css">
+	<link rel="stylesheet" href="./Otimização de modelos através de hiperparâmetros_files/classPage.686decbe.css">
+	<link rel="stylesheet" href="./Otimização de modelos através de hiperparâmetros_files/menuSettings.c2c70910.css">
+	<link rel="stylesheet" href="./Otimização de modelos através de hiperparâmetros_files/taskProgress.73b1902d.css">
+	<link rel="stylesheet" href="./Otimização de modelos através de hiperparâmetros_files/taskMessageInfo.2f3d3681.css">
+	<link rel="stylesheet" href="./Otimização de modelos através de hiperparâmetros_files/alternativeList.3b452dc0.css">
+	<link rel="stylesheet" href="./Otimização de modelos através de hiperparâmetros_files/taskFeedback.1c82537d.css">
+	<link rel="stylesheet" href="./Otimização de modelos através de hiperparâmetros_files/markdown.c1e23fdd.css">
+	<link rel="stylesheet" href="./Otimização de modelos através de hiperparâmetros_files/finishSection.eae45901.css">
+	<link rel="stylesheet" href="./Otimização de modelos através de hiperparâmetros_files/phrase.416f092b.css">
+	<link rel="stylesheet" href="./Otimização de modelos através de hiperparâmetros_files/hqexplanation.3ed41021.css">
+	<link rel="stylesheet" href="./Otimização de modelos através de hiperparâmetros_files/openquestion.c66aa640.css">
+	<link rel="stylesheet" href="./Otimização de modelos através de hiperparâmetros_files/textcontent.7298b79f.css">
+	<link rel="stylesheet" href="./Otimização de modelos através de hiperparâmetros_files/video.48a68d14.css">
+	<link rel="stylesheet" href="./Otimização de modelos através de hiperparâmetros_files/singlechoice.4a8caf68.css">
+	<link rel="stylesheet" href="./Otimização de modelos através de hiperparâmetros_files/music.c02947a9.css">
+	<link rel="stylesheet" href="./Otimização de modelos através de hiperparâmetros_files/multiplechoice.70f60e4c.css">
+	<link rel="stylesheet" href="./Otimização de modelos através de hiperparâmetros_files/videodialog.80603de3.css">
+	<link rel="stylesheet" href="./Otimização de modelos através de hiperparâmetros_files/fillintheblank.92f59734.css">
+	<link rel="stylesheet" href="./Otimização de modelos através de hiperparâmetros_files/speakingpractice.c2461a40.css">
+	<link rel="stylesheet" href="./Otimização de modelos através de hiperparâmetros_files/pronunciationpractice.790ca935.css">
+	<link rel="stylesheet" href="./Otimização de modelos através de hiperparâmetros_files/repetition.13eb3517.css">
+	<link rel="stylesheet" href="./Otimização de modelos através de hiperparâmetros_files/genericVideo.9239c799.css">
+	<link rel="stylesheet" href="./Otimização de modelos através de hiperparâmetros_files/projectSubmit.e7032445.css">
+	<link rel="stylesheet" href="./Otimização de modelos através de hiperparâmetros_files/extraContentTask.b2d126e6.css">
+	<link rel="stylesheet" href="./Otimização de modelos através de hiperparâmetros_files/taskContent.1ef47209.css">
+	<link rel="stylesheet" href="./Otimização de modelos através de hiperparâmetros_files/taskButtons.3fbd6adb.css">
+	<link rel="stylesheet" href="./Otimização de modelos através de hiperparâmetros_files/markdownEditor.9f06486b.css">
+	<link rel="stylesheet" href="./Otimização de modelos através de hiperparâmetros_files/audioPlayer.a615784e.css">
+	<link rel="stylesheet" href="./Otimização de modelos através de hiperparâmetros_files/notes.0c60a7da.css">
+	
+	<link rel="stylesheet" href="./Otimização de modelos através de hiperparâmetros_files/dark-mode.0ea50e1f.css">
+	<link rel="stylesheet" href="./Otimização de modelos através de hiperparâmetros_files/taskFeedbackAnswer.98ef221e.css">
+
+
+	<style type="text/css">
+		.task:before, .video-js .vjs-play-progress {
+			background-color: #2A7AE4;
+		}
+	</style>
+
+
+	<script async="" src="./Otimização de modelos através de hiperparâmetros_files/hotjar-1638253.js"></script><script src="./Otimização de modelos através de hiperparâmetros_files/sha256.min.js"></script><script async="" src="./Otimização de modelos através de hiperparâmetros_files/modules.a1fbf755044ca8f629ba.js" charset="utf-8"></script><style type="text/css">iframe#_hjRemoteVarsFrame {display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;}</style><style>._hj-mMo1P__styles__resetStyles * {
+  line-height: normal;
+  font-family: Arial, sans-serif, Tahoma !important;
+  text-transform: initial !important;
+  letter-spacing: normal !important; }
+
+._hj-mMo1P__styles__resetStyles *::before,
+._hj-mMo1P__styles__resetStyles *::after {
+  box-sizing: initial; }
+
+._hj-mMo1P__styles__resetStyles div {
+  height: auto; }
+
+._hj-mMo1P__styles__resetStyles div,
+._hj-mMo1P__styles__resetStyles span,
+._hj-mMo1P__styles__resetStyles p,
+._hj-mMo1P__styles__resetStyles a,
+._hj-mMo1P__styles__resetStyles button {
+  font-weight: normal !important; }
+
+._hj-mMo1P__styles__resetStyles div,
+._hj-mMo1P__styles__resetStyles span,
+._hj-mMo1P__styles__resetStyles p,
+._hj-mMo1P__styles__resetStyles a,
+._hj-mMo1P__styles__resetStyles img,
+._hj-mMo1P__styles__resetStyles strong,
+._hj-mMo1P__styles__resetStyles form,
+._hj-mMo1P__styles__resetStyles label {
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  float: none !important; }
+
+._hj-mMo1P__styles__resetStyles span {
+  color: inherit; }
+
+._hj-mMo1P__styles__resetStyles ol,
+._hj-mMo1P__styles__resetStyles ul,
+._hj-mMo1P__styles__resetStyles li {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important; }
+
+._hj-mMo1P__styles__resetStyles li:before,
+._hj-mMo1P__styles__resetStyles li:after {
+  content: none !important; }
+
+._hj-mMo1P__styles__resetStyles hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0; }
+
+._hj-mMo1P__styles__resetStyles input[type='submit'],
+._hj-mMo1P__styles__resetStyles input[type='button'],
+._hj-mMo1P__styles__resetStyles button {
+  margin: 0;
+  padding: 0;
+  float: none !important; }
+
+._hj-mMo1P__styles__resetStyles input,
+._hj-mMo1P__styles__resetStyles select,
+._hj-mMo1P__styles__resetStyles a img {
+  vertical-align: middle; }
+
+._hj-10MNR__styles__globalStyles *,
+._hj-10MNR__styles__globalStyles *::before,
+._hj-10MNR__styles__globalStyles *::after {
+  box-sizing: border-box; }
+
+@font-face {
+  font-family: 'hotjar';
+  src: url(https://script.hotjar.com/font-hotjar_5.fdcf0e.eot);
+  src: url(https://script.hotjar.com/font-hotjar_5.fdcf0e.eot#iefix) format("embedded-opentype"), url(https://script.hotjar.com/font-hotjar_5.c9fb91.woff2) format("woff2"), url(https://script.hotjar.com/font-hotjar_5.8598c5.ttf) format("truetype"), url(https://script.hotjar.com/font-hotjar_5.6da396.woff) format("woff"), url(https://script.hotjar.com/font-hotjar_5.a6049d.svg#hotjar) format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@keyframes _hj-CvZ6d__styles__spin {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+
+@keyframes _hj-19ojv__styles__colors {
+  0% {
+    border-color: #f4364c;
+    border-top-color: transparent; }
+  25% {
+    border-color: #00a2f2;
+    border-top-color: transparent; }
+  50% {
+    border-color: #efb60c;
+    border-top-color: transparent; }
+  75% {
+    border-color: #42ca49;
+    border-top-color: transparent; }
+  100% {
+    border-color: #f4364c;
+    border-top-color: transparent; } }
+
+._hj-10MNR__styles__globalStyles p {
+  color: inherit !important; }
+
+._hj-10MNR__styles__globalStyles a,
+._hj-10MNR__styles__globalStyles a:link,
+._hj-10MNR__styles__globalStyles a:hover,
+._hj-10MNR__styles__globalStyles a:active {
+  color: inherit !important;
+  text-decoration: underline; }
+
+._hj-10MNR__styles__globalStyles ._hj-1EbBs__styles__icon {
+  speak: none !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+  word-wrap: normal !important;
+  white-space: nowrap !important;
+  line-height: normal !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  vertical-align: middle !important; }
+
+._hj-10MNR__styles__globalStyles ._hj-1EbBs__styles__icon,
+._hj-10MNR__styles__globalStyles ._hj-1EbBs__styles__icon:before,
+._hj-10MNR__styles__globalStyles ._hj-1EbBs__styles__icon:after,
+._hj-10MNR__styles__globalStyles ._hj-1EbBs__styles__icon *,
+._hj-10MNR__styles__globalStyles ._hj-1EbBs__styles__icon *:before,
+._hj-10MNR__styles__globalStyles ._hj-1EbBs__styles__icon *:after {
+  font-family: 'hotjar' !important;
+  display: inline-block !important;
+  direction: ltr !important; }
+
+._hj-10MNR__styles__globalStyles ._hj-1EbBs__styles__icon:before {
+  color: inherit !important; }
+
+._hj-10MNR__styles__globalStyles ._hj-WPdPO__styles__iconX:before {
+  content: '\E803'; }
+
+._hj-10MNR__styles__globalStyles ._hj-2WW4P__styles__iconOk:before {
+  content: '\E804'; }
+
+._hj-10MNR__styles__globalStyles ._hj-34EZP__styles__iconError:before {
+  content: '\E90C'; }
+
+._hj-10MNR__styles__globalStyles ._hj-lAAAw__styles__iconLogo:before {
+  content: '\E806'; }
+
+._hj-10MNR__styles__globalStyles ._hj-FxxIA__styles__surveyIcons {
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 16px;
+  display: inline-block !important;
+  zoom: 1;
+  vertical-align: middle; }
+
+._hj-widget-theme-light ._hj-10MNR__styles__globalStyles ._hj-FxxIA__styles__surveyIcons {
+  background-image: url(https://script.hotjar.com/widget_icons_light.ddcd59.png); }
+
+._hj-widget-theme-dark ._hj-10MNR__styles__globalStyles ._hj-FxxIA__styles__surveyIcons {
+  background-image: url(https://script.hotjar.com/widget_icons_dark.3a8118.png); }
+
+._hj-10MNR__styles__globalStyles ._hj-1oY0c__styles__inputField {
+  font-family: Arial, sans-serif, Tahoma;
+  font-size: 14px;
+  color: #333 !important;
+  padding: 6px !important;
+  text-indent: 0 !important;
+  height: 30px;
+  width: 100%;
+  min-width: 100%;
+  background: white;
+  border: 1px solid !important;
+  outline: none !important;
+  max-width: none !important;
+  float: none;
+  border-radius: 3px; }
+
+._hj-10MNR__styles__globalStyles ._hj-2xXAa__styles__textarea {
+  resize: none;
+  height: 100px; }
+
+._hj-10MNR__styles__globalStyles ._hj-12tLZ__styles__basicButton, ._hj-10MNR__styles__globalStyles ._hj-21tno__styles__primaryButton {
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: capitalize;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 7px 10px;
+  border: 0;
+  outline: 0;
+  display: inline-block;
+  vertical-align: top;
+  width: auto;
+  zoom: 1;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+  color: white; }
+  ._hj-10MNR__styles__globalStyles ._hj-12tLZ__styles__basicButton:hover, ._hj-10MNR__styles__globalStyles ._hj-21tno__styles__primaryButton:hover, ._hj-10MNR__styles__globalStyles ._hj-12tLZ__styles__basicButton:focus, ._hj-10MNR__styles__globalStyles ._hj-21tno__styles__primaryButton:focus, ._hj-10MNR__styles__globalStyles ._hj-12tLZ__styles__basicButton:active, ._hj-10MNR__styles__globalStyles ._hj-21tno__styles__primaryButton:active {
+    background: #00a251; }
+  ._hj-10MNR__styles__globalStyles ._hj-12tLZ__styles__basicButton[disabled], ._hj-10MNR__styles__globalStyles ._hj-21tno__styles__primaryButton[disabled] {
+    cursor: default; }
+
+._hj-10MNR__styles__globalStyles ._hj-21tno__styles__primaryButton {
+  font-size: 13px !important;
+  font-weight: bold !important;
+  padding: 7px 10px !important;
+  border: 0 !important;
+  outline: 0 !important;
+  min-height: initial !important;
+  width: auto !important;
+  min-width: initial !important;
+  background: #00c764 !important; }
+  ._hj-10MNR__styles__globalStyles ._hj-21tno__styles__primaryButton:hover, ._hj-10MNR__styles__globalStyles ._hj-21tno__styles__primaryButton:focus, ._hj-10MNR__styles__globalStyles ._hj-21tno__styles__primaryButton:active {
+    background: #00a251 !important; }
+
+._hj-10MNR__styles__globalStyles ._hj-2VnCa__styles__clearButton {
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 13px !important;
+  padding: 7px 10px !important;
+  border: 0 !important; }
+  ._hj-10MNR__styles__globalStyles ._hj-2VnCa__styles__clearButton, ._hj-10MNR__styles__globalStyles ._hj-2VnCa__styles__clearButton:hover, ._hj-10MNR__styles__globalStyles ._hj-2VnCa__styles__clearButton:focus, ._hj-10MNR__styles__globalStyles ._hj-2VnCa__styles__clearButton:active {
+    background: transparent !important; }
+
+._hj-10MNR__styles__globalStyles ._hj-29HmU__styles__answersContentWrapper {
+  padding: 0 12px 12px 12px; }
+
+._hj-10MNR__styles__globalStyles ._hj-1KgX2__styles__spinner {
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  border-top-color: transparent !important;
+  border-radius: 50%;
+  transform: rotate(0deg);
+  animation: _hj-CvZ6d__styles__spin 0.4s linear infinite, _hj-19ojv__styles__colors 5.6s ease-in-out infinite; }
+
+._hj-2xXAa__styles__textarea { }
+
+._hj-WPdPO__styles__iconX,
+._hj-2WW4P__styles__iconOk,
+._hj-34EZP__styles__iconError,
+._hj-lAAAw__styles__iconLogo { }
+
+._hj-3v_Mp__styles__rtl,
+._hj-3v_Mp__styles__rtl * {
+  direction: rtl !important; }
+</style><style>._hj-3Qhhk__Notification__container {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif, Tahoma !important;
+  transition-duration: 350ms;
+  opacity: 0;
+  transform: scale(0.9);
+  display: flex;
+  background: #263345;
+  border-radius: 2px;
+  position: fixed;
+  z-index: 2147483646;
+  top: 20px;
+  left: 20px;
+  width: 400px;
+  padding: 25px;
+  box-shadow: "0 2px 4px 0 rgba(0,0,0,.3)"; }
+  ._hj-3Qhhk__Notification__container * {
+    font-family: "Open Sans", Helvetica, Arial, sans-serif, Tahoma !important; }
+
+._hj-ldyOW__Notification__active {
+  opacity: 1;
+  transform: scale(1); }
+
+._hj-3e98A__Notification__status {
+  margin: 0 20px 0 0;
+  border-radius: 50%;
+  min-width: 50px;
+  height: 50px;
+  box-shadow: "0 2px 4px 0 rgba(0,0,0,.3)"; }
+
+._hj-2rMkS__Notification__good {
+  background: url("data:image/png;base64,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") no-repeat 52% 53% #3acc40;
+  background-size: 25px 18px; }
+
+._hj-38oE1__Notification__bad {
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAB4CAYAAADsduKfAAAAAXNSR0IArs4c6QAABEZJREFUaAXtWt9vDUEU7q2iQjVtpEFDECqER31AIoKQePEm4qEvnohI/waJRLz5IzzwJqVJk4YI6YsIFVGiqVaFVlDakP7g+r65O9vd7uze2d05bTR7ku/O7OyZ891z5szsr6mpWSQp2fCUy+U66B0AtgAtwGpgDPgMDJRKpVGU2QUE7cBtYAKIk7848Ri4CKxMxYYOG4A7QFrpQ4dtVmRQbAPepWUI6I+jvjGRDAqbgbFAp6zVe7FEsLgCeJjVsqHf6SBZbeDgAupHAsd5q7Tni0pv/BuWA0CbfyZ/ZRYmWpH6X2hKe3QSdZcktM1UP8oKRRMdqxw6/z2oLWqiw7rBcekT6TH6BYI1jklobhJjtJ6VWiRCPUoJEtpvgP0mVhi6ZlYEZSttk2idIAlNt/KHRH9YEZS1tE0iTixJYQ4oohlJFthWiUaPmNqSwqux8ui3JAtsK0dqMaE4RnOCZD9pm6GjTFYKkV9le1kRLU3oFKvICHnjr8doQoiEZkPJ8EOIaBrTR6080h7500YTSXn0TUdKE33XDY5LPnEokSYaX3ZEkdD5g6ZddVQuXeik0jvskXfx8yeXo7DRTGSM2Cgxl8IekQXimmgGkfIXaz1hJYh8b2i8IGIUbMXPOHYoQmcbNuoVoUsTrZBubOhcXpPKoFSvZjR1ML1dXiomvCuC5pmfR44vFaF1jmxBj3jsagUPjY8k0aJ5tGhEReiYL5mkCF2msPFxMrKcSawMkTnEv/tfE0UyzuSRfwubaXQqnaqHzrtU5CWz8oj/aSSHN+z60dR/YTJQZ9ikmKLN+GFxSYlep/j3C1V5U/JmYSOPTR71mxQt24aRUMZXciailzDKf5ZFnsd1ihB561RWrx5YE3mKvXEdqrT3xJ2PeOQpdsV1SGh/hWjwg6S98CsmMASkkcv2DAFNMFxKwfIeuurzTcCEXRUd+VnuiQXZLHSO21mN0YIBfqPrSiD7inMnYrqHmtVXy1CL4QDG2tF8FtgO8FPdB6APuIUEkP4sBJpCiggUESgiUEQgFAHb1XsXenGjCvdkNQN80OI99lOs3i9QZhdcGlYBV4C3QJKM4uRVoDE1GzodAoaANMKL4DlrMih3ANNAVrmOjslDAoUzAHcA5pVrsZ7B8l5gKi9DoP95IxkUugNKLqrcENigydSdKhq4d+uUbnRUtsBOp7alb4l5hyMhfhaq7IBHg2DZIcEEmzsxqQd5N1qHA96vScluGmboGMvkvKdmdlFbSUlEjyRF2SdR6I27AKOyzw1I3OlkfMB1RPqJdugR5VGlcP47BYvPaFUTdTunqBjsRcTmd7shxZsALvOuJbotFQydjlnuG6MEEm5avuuIjM+0m4xEbMTJeqAnJ9kI+qvVIJbII+OjfweQdt83H5pvAOmeztGhEbgJzAHVhE/v+5M8qLrGwUATDOwLYA/qfG/K90V8QdWPFB5GmSj/AFf+LeTG2bgWAAAAAElFTkSuQmCC") no-repeat center center #ea4031;
+  background-size: 6px 30px; }
+
+._hj-1Zxo9__Notification__warning {
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAB4CAYAAADsduKfAAAAAXNSR0IArs4c6QAABEZJREFUaAXtWt9vDUEU7q2iQjVtpEFDECqER31AIoKQePEm4qEvnohI/waJRLz5IzzwJqVJk4YI6YsIFVGiqVaFVlDakP7g+r65O9vd7uze2d05bTR7ku/O7OyZ891z5szsr6mpWSQp2fCUy+U66B0AtgAtwGpgDPgMDJRKpVGU2QUE7cBtYAKIk7848Ri4CKxMxYYOG4A7QFrpQ4dtVmRQbAPepWUI6I+jvjGRDAqbgbFAp6zVe7FEsLgCeJjVsqHf6SBZbeDgAupHAsd5q7Tni0pv/BuWA0CbfyZ/ZRYmWpH6X2hKe3QSdZcktM1UP8oKRRMdqxw6/z2oLWqiw7rBcekT6TH6BYI1jklobhJjtJ6VWiRCPUoJEtpvgP0mVhi6ZlYEZSttk2idIAlNt/KHRH9YEZS1tE0iTixJYQ4oohlJFthWiUaPmNqSwqux8ui3JAtsK0dqMaE4RnOCZD9pm6GjTFYKkV9le1kRLU3oFKvICHnjr8doQoiEZkPJ8EOIaBrTR6080h7500YTSXn0TUdKE33XDY5LPnEokSYaX3ZEkdD5g6ZddVQuXeik0jvskXfx8yeXo7DRTGSM2Cgxl8IekQXimmgGkfIXaz1hJYh8b2i8IGIUbMXPOHYoQmcbNuoVoUsTrZBubOhcXpPKoFSvZjR1ML1dXiomvCuC5pmfR44vFaF1jmxBj3jsagUPjY8k0aJ5tGhEReiYL5mkCF2msPFxMrKcSawMkTnEv/tfE0UyzuSRfwubaXQqnaqHzrtU5CWz8oj/aSSHN+z60dR/YTJQZ9ikmKLN+GFxSYlep/j3C1V5U/JmYSOPTR71mxQt24aRUMZXciailzDKf5ZFnsd1ihB561RWrx5YE3mKvXEdqrT3xJ2PeOQpdsV1SGh/hWjwg6S98CsmMASkkcv2DAFNMFxKwfIeuurzTcCEXRUd+VnuiQXZLHSO21mN0YIBfqPrSiD7inMnYrqHmtVXy1CL4QDG2tF8FtgO8FPdB6APuIUEkP4sBJpCiggUESgiUEQgFAHb1XsXenGjCvdkNQN80OI99lOs3i9QZhdcGlYBV4C3QJKM4uRVoDE1GzodAoaANMKL4DlrMih3ANNAVrmOjslDAoUzAHcA5pVrsZ7B8l5gKi9DoP95IxkUugNKLqrcENigydSdKhq4d+uUbnRUtsBOp7alb4l5hyMhfhaq7IBHg2DZIcEEmzsxqQd5N1qHA96vScluGmboGMvkvKdmdlFbSUlEjyRF2SdR6I27AKOyzw1I3OlkfMB1RPqJdugR5VGlcP47BYvPaFUTdTunqBjsRcTmd7shxZsALvOuJbotFQydjlnuG6MEEm5avuuIjM+0m4xEbMTJeqAnJ9kI+qvVIJbII+OjfweQdt83H5pvAOmeztGhEbgJzAHVhE/v+5M8qLrGwUATDOwLYA/qfG/K90V8QdWPFB5GmSj/AFf+LeTG2bgWAAAAAElFTkSuQmCC") no-repeat center center #f39c11;
+  background-size: 6px 30px; }
+
+._hj-1h3WZ__Notification__content {
+  color: #dedede;
+  font-size: 13px; }
+
+._hj-2KcMV__Notification__title {
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 4px; }
+
+._hj-3-rwN__Notification__close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 22px;
+  color: white;
+  cursor: pointer;
+  line-height: 11px; }
+</style></head>
+<body>
+
+
+	
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+	<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TN542JN"
+				  height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+
+
+<section class="task" data-allow-answer="true" data-task-section-exam="false" data-task-type="hqexplanation" data-task-id="48702" data-author-id="347925" data-course-code="machine-learning-otimizacao-de-modelos-atraves-de-hiperparametros" data-section-name="Hiperparâmetros, overfit e otimização copy 5" data-section-id="7303" data-section-number="1" data-domain="cursos.alura.com.br" data-hasfeedbackanswer="false" data-url-prefix="/">
+	<section class="task-body">
+		
+		<header class="task-body-header">
+			<div class="container">
+				<h1 class="task-body-header-title">
+					<svg class="task-body-header-title-svg" aria-label="Atividade de Explicação">
+						<use xlink:href="/assets/images/classPage/icon-menu-icons.svg#HQ_EXPLANATION"></use>
+					</svg>
+					<small>01</small>
+					<span class="task-body-header-title-text"> Projeto inicial</span>
+				</h1>
+				
+					<div class="task-body-header-actions">
+						<a href="https://cursos.alura.com.br/course/machine-learning-otimizacao-de-modelos-atraves-de-hiperparametros/task/48702/next" aria-hidden="true" class="task-actions-button task-actions-button-next task-submit">Próxima Atividade</a>
+					</div>
+				
+			</div>
+		</header>
+		<div class="task-body__wrapper">
+			
+
+
+
+<section class="class-notes">
+    <div class="class-notes-content">
+        <h2 class="class-notes-title">Meu caderno do curso (beta)</h2>
+        <p class="class-notes-description">Este é seu caderno de anotações aqui na Alura. Todo o seu conteúdo fica vísivel apenas para você. Próximos passos para essa funcionalidade  no nosso<a href="https://suporte.alura.com.br/article/308-meu-caderno-como-funciona" class="class-notes-faq-link">FAQ</a></p>
+        <textarea name="text" id="courseNotebook-text" class="class-notes-text" cols="30" rows="10"></textarea>
+        <div class="class-notes-save-wrapper">
+            <span>
+                <p class="class-notes-saved-text" aria-hidden="true" style="display: none">Notas salvas</p>
+            </span>
+            <span class="class-notes-save-button-wrapper">
+                <button class="class-notes-save-button" data-save-text="Salvar caderno" data-saving-text="Salvando">
+                   Salvar caderno</button>
+            </span>
+        </div>
+        <button class="class-notes-close-button"></button>
+    </div>
+</section>
+			<main class="task-body-main container" data-should-warn="false">
+				
+
+
+
+
+
+
+
+	
+		
+
+
+
+
+<section class="hqExplanation" id="task-content">
+	<div class="container">
+	
+
+
+
+
+
+
+<div class="settings">
+	<button type="button" class="settings-button" aria-label="Configurações">
+		<svg class="settings-button-icon">
+			<use xlink:href="/assets/images/classPage/icon-menu-icons.svg#MENU_SETTINGS"></use>
+		</svg>
+	</button>
+	<div class="settings-box">
+		<span class="settings-box-title"></span>
+		<ul class="settings-box-list">
+			
+				<li class="settings-box-item settings-box-item-darkmode">
+					<button class="dark-mode-action">
+						Modo noturno
+					</button>
+				</li>
+			
+			
+				
+				
+				
+				
+					
+						<li class="settings-box-item settings-box-item-suggestion"><a href="https://cursos.alura.com.br/suggestions/new/machine-learning-otimizacao-de-modelos-atraves-de-hiperparametros/48702/question">Sugerir alteração</a></li>
+					
+				
+			
+			
+		</ul>
+	</div>
+</div>
+
+		<div class="formattedText" data-external-links="">
+			<p>Para começar a estudar, sugerimos que você faça o <a href="https://github.com/alura-cursos/introducao-a-otimizacao-de-machine-learning-atraves-de-hiper-parametros/archive/aula0.zip" rel="nofollow noopener" target="_blank">download do projeto inicial do curso</a>. Outra alternativa é <a href="https://github.com/alura-cursos/introducao-a-otimizacao-de-machine-learning-atraves-de-hiper-parametros/tree/aula0" rel="nofollow noopener" target="_blank">visualizar os arquivos no Github</a>. Bons estudos!</p>
+
+		</div>
+	</div>
+</section>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+				
+					
+
+
+
+
+
+
+	
+	
+		<section class="task-actions">
+			<div class="container">
+				
+
+
+
+
+
+<a href="https://cursos.alura.com.br/forum/curso-machine-learning-otimizacao-de-modelos-atraves-de-hiperparametros/exercicio-projeto-inicial/48702/novo" class=" task-actions-button task-actions-button-forum" target="_blank">Discutir no Forum</a>
+
+				
+				
+				
+					<a href="https://cursos.alura.com.br/course/machine-learning-otimizacao-de-modelos-atraves-de-hiperparametros/task/48702/next" class="task-actions-button task-body-actions-button task-actions-button-next">Próxima Atividade</a>
+				
+			</div>
+		</section>
+	
+
+
+				
+			</main>
+		</div>
+	</section>
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<button title="Abrir menu/Fechar menu" aria-label="Abrir menu/Fechar menu" type="button" class="openMenu-button task-body-button "></button>
+
+<aside class="task-menu" style="position: absolute;">
+	<section class="task-menu-header">
+		<button title="Fechar menu" aria-label="Fechar menu" type="button" class="openMenu-button task-menu-button "></button>
+		<div class="task-menu-header-info">
+			<a class="task-menu-header-info-title" href="https://cursos.alura.com.br/course/machine-learning-otimizacao-de-modelos-atraves-de-hiperparametros" title="Ir para página do curso">
+				
+					
+					
+						<img src="./Otimização de modelos através de hiperparâmetros_files/machine-learning-otimizacao-de-modelos-atraves-de-hiperparametros.svg" alt="ícone Machine Learning parte 1: Otimização de modelos através de hiperparâmetros" class="task-menu-header-info-title-icon " width="37.5px" height="37.5px">
+					
+				
+				<h2 class="task-menu-header-info-title-text">Machine Learning parte 1: Otimização de modelos através de hiperparâmetros</h2>
+			</a>
+			
+				<div class="task-menu-header-info-progress">
+					
+					<span class="task-menu-header-info-progress-percentage ">2%</span>
+					<span class="task-menu-header-info-progress-bar" style="background-image: linear-gradient(to right, #9de482, #9de482 2%, transparent 2%);"></span>
+				</div>
+			
+		</div>
+	</section>
+	
+	<div class="task-menu-others task-menu-notes">
+		<button class="task-menu-others-link class-notes-button" title="Abrir caderno">Abrir caderno</button>
+	</div>
+
+	<section class="task-menu-section">
+		<div class="task-menu-section-title">
+			<span class="task-menu-section-title-number ">Aula<strong>01</strong>
+				<span>de 05</span></span>
+			<h3 class="task-menu-section-title-text">
+				Hiperparâmetros, overfit e otimização copy 5
+			</h3>
+		</div>
+	</section>
+	<nav class="task-menu-nav">
+		<h2 class="task-menu-nav-title">
+			Atividades
+			<span>1 de 10</span>
+		</h2>
+		<ul class="task-menu-nav-list">
+			
+				
+				<li class="task-menu-nav-item task-menu-nav-item--selected">
+					<a href="https://cursos.alura.com.br/course/machine-learning-otimizacao-de-modelos-atraves-de-hiperparametros/task/48702" class="task-menu-nav-item-link task-menu-nav-item-link-HQ_EXPLANATION">
+						<svg class="task-menu-nav-item-svg task-menu-nav-item-svg--done" aria-label="Atividade de Explicação concluída">
+							
+								
+								<use xlink:href="/assets/images/classPage/icon-menu-icons.svg#HQ_EXPLANATION"></use>
+							
+							
+						
+					</svg>
+					<span class="task-menu-nav-item-number">01</span>
+					<span class="task-menu-nav-item-text">
+						<span class="task-menu-nav-item-title" title="Projeto inicial">
+							Projeto inicial
+						</span>
+						
+					</span></a>
+				</li>
+			
+				
+				<li class="task-menu-nav-item ">
+					<a href="https://cursos.alura.com.br/course/machine-learning-otimizacao-de-modelos-atraves-de-hiperparametros/task/48703" class="task-menu-nav-item-link task-menu-nav-item-link-VIDEO">
+						<svg class="task-menu-nav-item-svg " aria-label="Atividade de Vídeo não concluída">
+							
+								
+								<use xlink:href="/assets/images/classPage/icon-menu-icons.svg#VIDEO"></use>
+							
+							
+						
+					</svg>
+					<span class="task-menu-nav-item-number">02</span>
+					<span class="task-menu-nav-item-text">
+						<span class="task-menu-nav-item-title" title="Introdução">
+							Introdução
+						</span>
+						
+						<span class="task-menu-nav-item-infos">
+							
+								<span class="task-menu-nav-item-videoDuration" title="Ir para o Vídeo">06min</span>
+							
+						</span>
+					</span>
+					
+					</a>
+				</li>
+			
+				
+				<li class="task-menu-nav-item ">
+					<a href="https://cursos.alura.com.br/course/machine-learning-otimizacao-de-modelos-atraves-de-hiperparametros/task/48956" class="task-menu-nav-item-link task-menu-nav-item-link-HQ_EXPLANATION">
+						<svg class="task-menu-nav-item-svg " aria-label="Atividade de Explicação não concluída">
+							
+								
+								<use xlink:href="/assets/images/classPage/icon-menu-icons.svg#HQ_EXPLANATION"></use>
+							
+							
+						
+					</svg>
+					<span class="task-menu-nav-item-number">03</span>
+					<span class="task-menu-nav-item-text">
+						<span class="task-menu-nav-item-title" title="Dados da URI">
+							Dados da URI
+						</span>
+						
+					</span></a>
+				</li>
+			
+				
+				<li class="task-menu-nav-item ">
+					<a href="https://cursos.alura.com.br/course/machine-learning-otimizacao-de-modelos-atraves-de-hiperparametros/task/48704" class="task-menu-nav-item-link task-menu-nav-item-link-VIDEO">
+						<svg class="task-menu-nav-item-svg " aria-label="Atividade de Vídeo não concluída">
+							
+								
+								<use xlink:href="/assets/images/classPage/icon-menu-icons.svg#VIDEO"></use>
+							
+							
+						
+					</svg>
+					<span class="task-menu-nav-item-number">04</span>
+					<span class="task-menu-nav-item-text">
+						<span class="task-menu-nav-item-title" title="Entendendo o que é um parâmetro">
+							Entendendo o que é um parâmetro
+						</span>
+						
+						<span class="task-menu-nav-item-infos">
+							
+								<span class="task-menu-nav-item-videoDuration" title="Ir para o Vídeo">16min</span>
+							
+						</span>
+					</span>
+					
+					</a>
+				</li>
+			
+				
+				<li class="task-menu-nav-item ">
+					<a href="https://cursos.alura.com.br/course/machine-learning-otimizacao-de-modelos-atraves-de-hiperparametros/task/48705" class="task-menu-nav-item-link task-menu-nav-item-link-VIDEO">
+						<svg class="task-menu-nav-item-svg " aria-label="Atividade de Vídeo não concluída">
+							
+								
+								<use xlink:href="/assets/images/classPage/icon-menu-icons.svg#VIDEO"></use>
+							
+							
+						
+					</svg>
+					<span class="task-menu-nav-item-number">05</span>
+					<span class="task-menu-nav-item-text">
+						<span class="task-menu-nav-item-title" title="Quanto mais complexa a árvore, melhor?">
+							Quanto mais complexa a árvore, melhor?
+						</span>
+						
+						<span class="task-menu-nav-item-infos">
+							
+								<span class="task-menu-nav-item-videoDuration" title="Ir para o Vídeo">09min</span>
+							
+						</span>
+					</span>
+					
+					</a>
+				</li>
+			
+				
+				<li class="task-menu-nav-item ">
+					<a href="https://cursos.alura.com.br/course/machine-learning-otimizacao-de-modelos-atraves-de-hiperparametros/task/48706" class="task-menu-nav-item-link task-menu-nav-item-link-VIDEO">
+						<svg class="task-menu-nav-item-svg " aria-label="Atividade de Vídeo não concluída">
+							
+								
+								<use xlink:href="/assets/images/classPage/icon-menu-icons.svg#VIDEO"></use>
+							
+							
+						
+					</svg>
+					<span class="task-menu-nav-item-number">06</span>
+					<span class="task-menu-nav-item-text">
+						<span class="task-menu-nav-item-title" title="Otimizando um hiper parâmetro e o problema do overfit">
+							Otimizando um hiper parâmetro e o problema do overfit
+						</span>
+						
+						<span class="task-menu-nav-item-infos">
+							
+								<span class="task-menu-nav-item-videoDuration" title="Ir para o Vídeo">11min</span>
+							
+						</span>
+					</span>
+					
+					</a>
+				</li>
+			
+				
+				<li class="task-menu-nav-item ">
+					<a href="https://cursos.alura.com.br/course/machine-learning-otimizacao-de-modelos-atraves-de-hiperparametros/task/48955" class="task-menu-nav-item-link task-menu-nav-item-link-SINGLE_CHOICE">
+						<svg class="task-menu-nav-item-svg " aria-label="Atividade de Atividade de Única Escolha não concluída">
+							
+								
+								<use xlink:href="/assets/images/classPage/icon-menu-icons.svg#SINGLE_CHOICE"></use>
+							
+							
+						
+					</svg>
+					<span class="task-menu-nav-item-number">07</span>
+					<span class="task-menu-nav-item-text">
+						<span class="task-menu-nav-item-title" title="Definição do max_depth">
+							Definição do max_depth
+						</span>
+						
+					</span></a>
+				</li>
+			
+				
+				<li class="task-menu-nav-item ">
+					<a href="https://cursos.alura.com.br/course/machine-learning-otimizacao-de-modelos-atraves-de-hiperparametros/task/48707" class="task-menu-nav-item-link task-menu-nav-item-link-VIDEO">
+						<svg class="task-menu-nav-item-svg " aria-label="Atividade de Vídeo não concluída">
+							
+								
+								<use xlink:href="/assets/images/classPage/icon-menu-icons.svg#VIDEO"></use>
+							
+							
+						
+					</svg>
+					<span class="task-menu-nav-item-number">08</span>
+					<span class="task-menu-nav-item-text">
+						<span class="task-menu-nav-item-title" title="Revisando a exploração de um espaço de parâmetros">
+							Revisando a exploração de um espaço de parâmetros
+						</span>
+						
+						<span class="task-menu-nav-item-infos">
+							
+								<span class="task-menu-nav-item-videoDuration" title="Ir para o Vídeo">04min</span>
+							
+						</span>
+					</span>
+					
+					</a>
+				</li>
+			
+				
+				<li class="task-menu-nav-item ">
+					<a href="https://cursos.alura.com.br/course/machine-learning-otimizacao-de-modelos-atraves-de-hiperparametros/task/48954" class="task-menu-nav-item-link task-menu-nav-item-link-TEXT_CONTENT">
+						<svg class="task-menu-nav-item-svg " aria-label="Atividade de Atividade sem Resposta do Aluno não concluída">
+							
+								
+								<use xlink:href="/assets/images/classPage/icon-menu-icons.svg#TEXT_CONTENT"></use>
+							
+							
+						
+					</svg>
+					<span class="task-menu-nav-item-number">09</span>
+					<span class="task-menu-nav-item-text">
+						<span class="task-menu-nav-item-title" title="Faça o que eu fiz na aula">
+							Faça o que eu fiz na aula
+						</span>
+						
+					</span></a>
+				</li>
+			
+				
+				<li class="task-menu-nav-item ">
+					<a href="https://cursos.alura.com.br/course/machine-learning-otimizacao-de-modelos-atraves-de-hiperparametros/task/48953" class="task-menu-nav-item-link task-menu-nav-item-link-HQ_EXPLANATION">
+						<svg class="task-menu-nav-item-svg " aria-label="Atividade de Explicação não concluída">
+							
+								
+								<use xlink:href="/assets/images/classPage/icon-menu-icons.svg#HQ_EXPLANATION"></use>
+							
+							
+						
+					</svg>
+					<span class="task-menu-nav-item-number">10</span>
+					<span class="task-menu-nav-item-text">
+						<span class="task-menu-nav-item-title" title="O que aprendemos?">
+							O que aprendemos?
+						</span>
+						
+					</span></a>
+				</li>
+			
+			
+		</ul>
+	</nav>
+	<section class="task-menu-sections">
+		<h2 class="task-menu-sections-title">
+			Aulas
+		</h2>
+		<select class="task-menu-sections-select" onchange="location.href=&#39;/course/machine-learning-otimizacao-de-modelos-atraves-de-hiperparametros/section/&#39;+this.value+&#39;/tasks&#39;;">
+			
+				<option value="7303" selected="">01. Hiperparâmetros, overfit e otimização copy 5</option>
+			
+				<option value="7304">02. Explorando 2 dimensões de hiperparâmetros</option>
+			
+				<option value="7305">03. Trabalhando com 3 ou mais dimensões</option>
+			
+				<option value="7306">04. Busca de parâmetros com o GridSearchCV</option>
+			
+				<option value="7307">05. Nested cross validation e validando o modelo escolhido</option>
+			
+		</select>
+	</section>
+	<section class="task-menu-others">
+		<h2 class="task-menu-others-title ">
+			Outros Links
+		</h2>
+		<a href="https://cursos.alura.com.br/forum/curso-machine-learning-otimizacao-de-modelos-atraves-de-hiperparametros/todos" class="task-menu-others-link task-menu-others-link-forum" title="Ir para o fórum do curso">Fórum</a>
+		<a href="https://cursos.alura.com.br/dashboard" class="task-menu-others-link task-menu-others-link-curso" title="Ir para a página principal">Trocar Curso</a>
+
+	</section>
+	<section class="task-menu-footer">
+		<a class="task-menu-footer-user" href="https://cursos.alura.com.br/user/herica-gomes" title="Ir para sua página de usuário">
+			<img src="./Otimização de modelos através de hiperparâmetros_files/cee047c7988e4f4790af30ff76411680.png" alt="Gravatar de Herica Xavier Gomes Pereira" class="task-menu-footer-img" width="40px" height="40px">
+			
+				<p class="task-menu-footer-detalhes">
+					<span class="task-menu-footer-detalhes-nome">Herica Xavier Gomes Pereira</span>
+					<span class="task-menu-footer-detalhes-xp">
+						24.8k xp
+					</span>
+				</p>
+			
+			<input type="hidden" value="">
+			<input type="hidden" value="">
+		</a>
+		<a href="https://cursos.alura.com.br/dashboard" class="task-menu-footer-logo">
+			<img src="./Otimização de modelos através de hiperparâmetros_files/icon-menu-alura.svg" alt="Logo da Alura" class="task-menu-footer-logo-image" width="19px" height="32px" title="Ir para a página principal">
+		</a>
+	</section>
+</aside>
+
+
+
+</section><div class="full-screen__panel" style="display: none;">
+				<img id="full-screen__image" class="full-screen__image" src="https://cursos.alura.com.br/course/machine-learning-otimizacao-de-modelos-atraves-de-hiperparametros/task/48702" alt="">
+				<div class="full-screen__actions">
+				<button class="button buttonAction partitura-download">Anterior</button><button class="button buttonAction partitura-download">Sair</button><button class="button buttonAction partitura-download">Próximo</button></div> 
+			</div>
+
+
+
+
+	
+		<!-- Hotjar Tracking Code for https://cursos.alura.com.br -->
+		<script>
+			(function(h,o,t,j,a,r){
+				h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+				h._hjSettings={hjid:1638253,hjsv:6};
+				a=o.getElementsByTagName('head')[0];
+				r=o.createElement('script');r.async=1;
+				r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+				a.appendChild(r);
+			})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+		</script>
+	
+
+	<script src="./Otimização de modelos através de hiperparâmetros_files/jquery-2.1.3.min.32015dd4.js"></script>
+	<script src="./Otimização de modelos através de hiperparâmetros_files/buttonToggle.js" async=""></script>
+	<script src="./Otimização de modelos através de hiperparâmetros_files/sectionMenu.9c6d35d8.js" async=""></script>
+
+	<script src="./Otimização de modelos através de hiperparâmetros_files/marked.min.js"></script>
+	<script src="./Otimização de modelos através de hiperparâmetros_files/markdownEditor.07eebbca.js" async=""></script>
+	<script src="./Otimização de modelos através de hiperparâmetros_files/caret.js" async=""></script>
+	<script src="./Otimização de modelos através de hiperparâmetros_files/keydownWatchers.f20680cd.js" async=""></script>
+	<script src="./Otimização de modelos através de hiperparâmetros_files/prettify.min.49a10a85.js" async=""></script>
+
+	<script src="./Otimização de modelos através de hiperparâmetros_files/preventsMultipleInteractions.ccefe158.js" async=""></script>
+	<script src="./Otimização de modelos através de hiperparâmetros_files/assessment.050f656f.js" async=""></script>
+
+	<script src="./Otimização de modelos através de hiperparâmetros_files/menuSettings.586ae39e.js"></script>
+	<script src="./Otimização de modelos através de hiperparâmetros_files/aria.1c51db86.js"></script>
+	<script src="./Otimização de modelos através de hiperparâmetros_files/ProjectSubmit.1da29f73.js"></script>
+	<script src="./Otimização de modelos através de hiperparâmetros_files/classPage.cc188151.js"></script>
+	<script src="./Otimização de modelos através de hiperparâmetros_files/phrase.dda08bd7.js"></script>
+	<script src="./Otimização de modelos através de hiperparâmetros_files/feedback.98f71e18.js"></script><script type="text/javascript" id="">elements=document.querySelectorAll("input, select");elements.forEach(function(b,c){b.addEventListener("change",function(a){a=this.getAttribute("name");dataLayer.push({event:"gaEvent",eventCategory:"Formul\u00e1rios",eventAction:"Altera\u00e7\u00e3o",eventLabel:a})})});</script>
+<script type="text/javascript" id="">var key="Think_Again45984$%";function log(a){console.log(a)}function getPars(){var a={};window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(b,c,d){a[c]=d});return a}function userId(a){a=sha256.hmac(key,a);dataLayer.push({event:"userId",userId:a})}var script=document.createElement("script");script.onload=function(){var a=getPars().e;a&&userId(a);a=document.querySelectorAll('[type\x3d"email"]');for(var b=0;b<a.length;b++)a[b].onchange=function(){userId(this.value)}};script.src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js";
+document.head.appendChild(script);</script>
+	<script src="./Otimização de modelos através de hiperparâmetros_files/ExtraContentProgressRequest.8fae0e05.js"></script>
+	
+	
+
+	
+	
+	
+	
+
+	<script src="./Otimização de modelos através de hiperparâmetros_files/partitura.c5cff29c.js"></script>
+	<script src="./Otimização de modelos através de hiperparâmetros_files/audioProgress.71d14880.js"></script>
+	<script src="./Otimização de modelos através de hiperparâmetros_files/audioPlayer.92474cef.js"></script>
+
+		
+
+	
+
+	<script src="./Otimização de modelos através de hiperparâmetros_files/darkMode.9a9f2dcd.js">
+	</script>
+
+	
+		
+
+
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-42101548-1', 'alura.com.br');
+
+    
+        ga('set', 'userId', '347925');
+    
+
+    ga('require', 'displayfeatures');
+    
+    ga('send', 'pageview');
+    
+    
+</script>
+	
+
+	<script>new DarkModeToggler().refreshListener()</script>
+	<script src="./Otimização de modelos através de hiperparâmetros_files/ClassNotes.1b143ac5.js">
+	</script>
+<script>
+	new ClassNotes().refreshListeners();
+</script>
+
+
+
+
+
+
+<script src="./Otimização de modelos através de hiperparâmetros_files/MarkdownProcessing.f83261d2.js"></script>
+<script>
+	new MarkdownProcessing("https://cursos.alura.com.br").onLoad();
+</script><iframe name="_hjRemoteVarsFrame" title="_hjRemoteVarsFrame" id="_hjRemoteVarsFrame" src="./Otimização de modelos através de hiperparâmetros_files/box-469cf41adb11dc78be68c1ae7f9457a4.html" style="display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;"></iframe></body></html>
